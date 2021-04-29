@@ -89,8 +89,10 @@ Sample Response:
 
     Error code: 400
     invalid_field - example {"guess":["Only a-z and A-Z characters are allowed."]}
-    game_not_found - sent back when the game id cannot be found
     game_finished - when modfying the game and the state is either LOSS or WIN
+
+    Error code: 404
+    game_not_found - sent back when the game id cannot be found
 
 When posting a guess to the API the reflected game state will be returned as well. 
 Guesses left can be calculated by taking 8 - size(incorrect_guesses).
