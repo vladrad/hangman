@@ -135,6 +135,7 @@ Once deployed it should be easy to add/remove containers horizontally using the 
 There is no security on the main API. Anyone can create and edit the games as they are being played. 
 To solve this, the Django user framework can be leveraged to lock down the API. 
 From there rate limiting should be considered as well, someone could write a script to keep polling infinitely per hour. 
+There is also a reminder that the django secret token is exposed in clear text with in the config file.
 
 ### Database 
 Currently, in its state this application is not production ready. The database used is SQL lite which comes as a standard db with Django. 
