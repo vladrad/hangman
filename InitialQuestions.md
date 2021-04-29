@@ -1,0 +1,14 @@
+# Initial Project Questions
+-Do you require me to build a front end for this assignment or are API's ok?
+
+-In terms of eligible words that are in the dictionary. Do I need any support for things like foreign languages? I found nothing in the doc specifying it but it would affect the design (in terms of validation). Do I need to support synonyms (example a-bomb is a valid dictionary entry)? Can I assume only characters a-z are ok? No special characters needed?
+
+-What exactly is the purpose, end goal and future of this product? I am trying to determine what the schema design is going to be. For instance if the product is just a simple api that serves games then its very possible to have just one table. If the product wants to be more in depth and in the future ask questions like “For word turtle what is the average number of guesses that include letter B or F?” “How many games were played in the last hour/day/week/month/year” “How many average guesses does it take to complete a game”?. This would also affect what fields to index and add complexity to the database. It would be good to know upfront as much as possible to create indexes ahead of time instead of doing a full reindex on a table with potentially billions of rows. It would also provide me with an idea what database to potentially select as a candidate.  
+
+-How would you like me to handle out of turn order? The spec does not require keeping track of which players turn it is. Is this expected and ok?
+
+-If a player guesses the same wrong answer multiple times in a row does it affect the total number of tries? Example: If I guess "A" 8 times in a row do I fail the game? Do I need to respond back saying it was guessed already? 
+
+-Are there any requirements for URL generation? In the example you posted there is a url website.com/hangman/6a74134863 . Is there a minimum or maximum number for the id? My initial reaction is for the database to drive this generation of ids. I ask because in some projects I have worked on had product requirements where urls are all 5 characters long. Depending on the api load there can be a chance that urls are taken past 5 characters fairly quickly (weeks/months/years). Depending on this requirement I may need something that archives old urls to free up available urls. Do I need to worry about this?
+
+-All games will dip into a pool of potential words to choose from. There is a given amount of words in the English language so I was thinking of hardcoding a value representing total words possible in my database. I want to create an efficient algorithm that selects a random word from the database and assigns them to games. Is this ok to do? While the chances are low there may be a time when the same word is chosen two times in a row? Is this ok? Do I need to make sure it's an unused word?
